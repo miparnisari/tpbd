@@ -1,0 +1,12 @@
+1) Se agreguo la explicación: un turno puede atenderse en x dirección, la cual es la del establecimiento que se le asigna.
+Lo que nosotros hicimos fue reusar la entidad Dirección, tanto para las direcciones personales de los pacientes, como para la direccion de los multiples tipos de consultorios del hospital, ya que tienen exactamente los mismos atributos (o la gran mayoria de ellas, son direcciones despues de todo); no sabemos si nos expresamos bien. Hace falta una herencia de la entidad Direccion, entre los 2 tipos de direccion antes mencionados, para que no haya confusiones?
+
+2) Borrado el "Profesional" duplicado.
+
+3) Se cambio el dei para que el procedimiento medico solo pertenezca a una especialidad.
+
+4) Se cambio en el diccionario de datos, ahora la clave es #matricula, fecha, Hora inicio
+
+5) Ese error es porque nos olvidamos de actualizar esa parte del informe cuando agregamos cosas nuevas al diagrama. La interrelación "Reserva" ahora se identifica con "#Turno", ya que sólo encontraremos una persona por turno.
+
+

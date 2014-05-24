@@ -1,0 +1,19 @@
+1) No llego a entender la interrelacion "Es atendido en". Un turno se atiende en el hospital, no donde vive la persona
+
+2) Poner dos veces la entidad "Profesional" presta a mas confusion que si las lineas de las interrelaciones se cruzan. Vean si no le es mucho problema reorganizar el MEI para que aparezca una sola vez (estoy asumiendo que es el mismo tipo de entidad que repitieron)
+
+3) En qué casos les sirve que un procedimiento medico sea para mas de una especialidad? No veo la ventaja pero si las desvetajas: una obra social no puede cubrir el procedimiento medico para una especialidad si y para otra no (ya que se vincula con un procedimiento medico, que puede ser de varias especialidades)
+
+4) En el diccionario de datos, Block de Turnos, al ser debil de Profesinoal, tiene que incluir su identificador unico. Es decir no puede ser unicamente Fecha + Hora inicio + Hora fin sino que tambien tiene que incluir #Matricula. Además, no será correcto que el identificador unico sea #Matricula + Fecha + Hora Inicio + Hora fin, porque no es minimo, ya que "hora Fin" esta de mas. Es decir el mismo profesional el mismo dia y la misma hora inicio no puede tener dos horas de fin distintas
+
+5) La interrelacion "Reserva" se identifica con atributos "Fecha y Hora" que no se de donde salen. El identificador de turno es "#Turno" asi que una reserva deberia incluir al Id del turno, no a su fecha y hora. Por otro lado, si el identificador unico que terminan eligiendo para Reserva es (#Paciente, #Turno) esta mal porque no es mínima
+
+6) El id unico de "Vive en" no es minimo. Corregir tambien en "Financiada Por"- "Solicita Servicio" - "Tiene Horario En"
+
+7) Para "Tiene cobertura" cometen dos errores. El primero es que en una interrelacion, el identificador unico debe salir de los tipos de entidades que interrelaciona, uds eligieron un atributo propio que no es lo correcto. Además, no serviria como identificador unico si el MEI permitiera elegir atributos de las interrelaciones como id, por lo siguiente: Dos personas distintas en distintas obras sociales pueden ser el afiliado numero 1000 de cada una, con lo que el numero de afiliado no me permitiria distinguir entre dos instancias distintas de afiliacion
+
+8) En el id de "Block con especialidad", ademas de estar mal su id por no ser minimo, con la correccion del item 4 van a te ner que incorporar tambien el id de profesional
+
+9) En el pasaje me dicen que para las herencias solo se van a crear relaciones para los hijos. Sin embargo crean una relacion para "Persona", que es el padre, y para "Paciente" y "Profesional". En ninguno de los dos hijos ponen una forma de conocer a que persona le corresponden los datos. Ejemplo, si yo busco el paciente numero 2000, puedo conocer su condicion ante IVA y nro de historia clinica, pero como hago para conocer su nombre? No tengo forma de acceder a la tabla de Personas porque no conozco ni su tipo ni su numero de documento. Corrijan esto
+
+10) Las correcciones anteriores pueden repercutir en el pasaje a modelo relacional, por favor revisenlo
