@@ -1,19 +1,19 @@
 1) Se agreguo la explicación: un turno puede atenderse en x dirección, la cual es la del establecimiento que se le asigna.
 Lo que nosotros hicimos fue reusar la entidad Dirección, tanto para las direcciones personales de los pacientes, como para la direccion de los multiples tipos de consultorios del hospital, ya que tienen exactamente los mismos atributos (o la gran mayoria de ellas, son direcciones despues de todo); no sabemos si nos expresamos bien. Hace falta una herencia de la entidad Direccion, entre los 2 tipos de direccion antes mencionados, para que no haya confusiones?
 
-2) Borrado el "Profesional" duplicado.
+2) Se borro el "Profesional" duplicado.
 
-3) Se cambio el dei para que el procedimiento medico solo pertenezca a una especialidad.
+3) Se cambio el DEI para que "Procedimiento medico" solo pertenezca a una "Especialidad".
 
-4) Se cambio en el diccionario de datos, ahora la clave es #matricula, fecha, Hora inicio
+4) Se cambio en el diccionario de datos, ahora la clave de "Block de turnos" es '(#Matricula, fecha, Hora inicio)'.
 
-5) Ese error es porque nos olvidamos de actualizar esa parte del informe cuando agregamos o cambiamos cosas en el diagrama o MR. La interrelación "Reserva" ahora se identifica con "#Turno", ya que sólo encontraremos una persona por turno.
+5) Ese error es porque nos olvidamos de actualizar esa parte del informe cuando agregamos o cambiamos cosas en el diagrama o MR. La interrelación "Reserva" ahora se identifica con '#Turno', ya que sólo encontraremos una persona por turno.
 
 6) Corregido los IDs.
 
-7)
+7) Se paso el atributo 'Numero de afiliado' de "Tiene cobertura" a "Paciente", su ID ahora es '#Paciente'.
 
-8) Corregido el ID de Block con especialidad.
+8) Corregido el ID de "Block con especialidad".
 
 9)
 
