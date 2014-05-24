@@ -12,7 +12,7 @@
 
 7) Para "Tiene cobertura" cometen dos errores. El primero es que en una interrelacion, el identificador unico debe salir de los tipos de entidades que interrelaciona, uds eligieron un atributo propio que no es lo correcto. Además, no serviria como identificador unico si el MEI permitiera elegir atributos de las interrelaciones como id, por lo siguiente: Dos personas distintas en distintas obras sociales pueden ser el afiliado numero 1000 de cada una, con lo que el numero de afiliado no me permitiria distinguir entre dos instancias distintas de afiliacion
 
-8) En el id de "Block con especialidad", ademas de estar mal su id por no ser minimo, con la correccion del item 4 van a te ner que incorporar tambien el id de profesional
+8) En el id de "Block con especialidad", ademas de estar mal su id por no ser minimo, con la correccion del item 4 van a tener que incorporar tambien el id de profesional
 
 9) En el pasaje me dicen que para las herencias solo se van a crear relaciones para los hijos. Sin embargo crean una relacion para "Persona", que es el padre, y para "Paciente" y "Profesional". En ninguno de los dos hijos ponen una forma de conocer a que persona le corresponden los datos. Ejemplo, si yo busco el paciente numero 2000, puedo conocer su condicion ante IVA y nro de historia clinica, pero como hago para conocer su nombre? No tengo forma de acceder a la tabla de Personas porque no conozco ni su tipo ni su numero de documento. Corrijan esto
 
