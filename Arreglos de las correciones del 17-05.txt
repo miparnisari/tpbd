@@ -9,12 +9,12 @@ Lo que nosotros hicimos fue reusar la entidad Dirección, tanto para las direccio
 
 5) Ese error es porque nos olvidamos de actualizar esa parte del informe cuando agregamos o cambiamos cosas en el diagrama o MR. La interrelación "Reserva" ahora se identifica con '#Turno', ya que sólo encontraremos una persona por turno.
 
-6) Corregido los IDs.
+6) Se corrigieron los IDs.
 
 7) Se paso el atributo 'Numero de afiliado' de "Tiene cobertura" a "Paciente", su ID ahora es '#Paciente'.
 
-8) Corregido el ID de "Block con especialidad".
+8) Se corrigio el ID de "Block con especialidad".
 
-9)
+9) Se agrego el ID de "Persona" a las dos entidades hijas (y se acualizaron sus atributos, CC, FK). Se reformulo la explicación de la elección de pasaje de modelos para la parte de herencia.
 
-10)
+10) Se actualizo el MR con todos los cambios pertinentes.
