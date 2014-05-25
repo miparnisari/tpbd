@@ -4,11 +4,11 @@
 
 3) En qué casos les sirve que un procedimiento medico sea para mas de una especialidad? No veo la ventaja pero si las desvetajas: una obra social no puede cubrir el procedimiento medico para una especialidad si y para otra no (ya que se vincula con un procedimiento medico, que puede ser de varias especialidades)
 
-4) En el diccionario de datos, Block de Turnos, al ser debil de Profesinoal, tiene que incluir su identificador unico. Es decir no puede ser unicamente Fecha + Hora inicio + Hora fin sino que tambien tiene que incluir #Matricula. Además, no será correcto que el identificador unico sea #Matricula + Fecha + Hora Inicio + Hora fin, porque no es minimo, ya que "hora Fin" esta de mas. Es decir el mismo profesional el mismo dia y la misma hora inicio no puede tener dos horas de fin distintas
+4) En el diccionario de datos, Block de Turnos, al ser debil de Profesional, tiene que incluir su identificador unico. Es decir no puede ser unicamente Fecha + Hora inicio + Hora fin sino que tambien tiene que incluir #Matricula. Además, no será correcto que el identificador unico sea #Matricula + Fecha + Hora Inicio + Hora fin, porque no es minimo, ya que "hora Fin" esta de mas. Es decir el mismo profesional el mismo dia y la misma hora inicio no puede tener dos horas de fin distintas
 
 5) La interrelacion "Reserva" se identifica con atributos "Fecha y Hora" que no se de donde salen. El identificador de turno es "#Turno" asi que una reserva deberia incluir al Id del turno, no a su fecha y hora. Por otro lado, si el identificador unico que terminan eligiendo para Reserva es (#Paciente, #Turno) esta mal porque no es mínima
 
-6) El id unico de "Vive en" no es minimo. Corregir tambien en "Financiada Por"- "Solicita Servicio" - "Tiene Horario En"
+6) El id unico de "Vive en" no es minimo. Corregir tambien en "Financiada Por" - "Solicita Servicio" - "Tiene Horario En"
 
 7) Para "Tiene cobertura" cometen dos errores. El primero es que en una interrelacion, el identificador unico debe salir de los tipos de entidades que interrelaciona, uds eligieron un atributo propio que no es lo correcto. Además, no serviria como identificador unico si el MEI permitiera elegir atributos de las interrelaciones como id, por lo siguiente: Dos personas distintas en distintas obras sociales pueden ser el afiliado numero 1000 de cada una, con lo que el numero de afiliado no me permitiria distinguir entre dos instancias distintas de afiliacion
 
