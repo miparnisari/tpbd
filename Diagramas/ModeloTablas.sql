@@ -5,7 +5,7 @@ CREATE TABLE Dirección (
  Numero INT NOT NULL,
  Piso INT NOT NULL,
  Departamento CHAR(1) NOT NULL,
- Codigo Postal CHAR(10) NOT NULL
+ Codigo Postal INT NOT NULL
 );
 
 ALTER TABLE Dirección ADD CONSTRAINT PK_Dirección PRIMARY KEY (Provincia,Localidad,Calle,Numero,Piso,Departamento);
@@ -38,11 +38,11 @@ CREATE TABLE Persona (
  Apellido CHAR(10) NOT NULL,
  Apellido casada CHAR(10),
  Nombre CHAR(10) NOT NULL,
- Sexo CHAR(10) NOT NULL,
- Estado civil CHAR(10) NOT NULL,
+ Sexo CHAR(1) NOT NULL,
+ Estado civil CHAR(1) NOT NULL,
  Telefono CHAR(10),
  Celular CHAR(10),
- E-mail CHAR(10),
+ E-mail CHAR(30),
  Nacionalidad CHAR(10) NOT NULL,
  Lugar Nacimiento CHAR(10) NOT NULL,
  Fecha Nacimiento CHAR(10) NOT NULL
@@ -55,7 +55,7 @@ CREATE TABLE Procedimiento Médico (
  Codigo Procedimiento CHAR(10) NOT NULL,
  Nombre Especialidad CHAR(10) NOT NULL,
  Nombre CHAR(10) NOT NULL,
- Condiciones CHAR(10)
+ Condiciones VARCHAR(10)
 );
 
 ALTER TABLE Procedimiento Médico ADD CONSTRAINT PK_Procedimiento Médico PRIMARY KEY (Codigo Procedimiento);
@@ -85,7 +85,7 @@ CREATE TABLE Block de Turnos (
  Hora Inicio TIME(10) NOT NULL,
  Nombre Especialidad CHAR(10) NOT NULL,
  Hora Fin TIME(10) NOT NULL,
- Estado CHAR(10) NOT NULL,
+ Estado INT NOT NULL,
  Tipo Agenda CHAR(10) NOT NULL,
  Cantidad Pacientes INT
 );
@@ -173,7 +173,7 @@ ALTER TABLE Turno de Quirófano y Cama ADD CONSTRAINT PK_Turno de Quirófano y Cam
 
 
 CREATE TABLE Tiene Procedimiento (
- Nro Turno CHAR(10) NOT NULL,
+ Nro Turno INT NOT NULL,
  Codigo Procedimiento CHAR(10) NOT NULL
 );
 
