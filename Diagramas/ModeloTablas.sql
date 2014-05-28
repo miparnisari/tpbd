@@ -105,8 +105,8 @@ CREATE TABLE Cubre (
  Codigo Procedimiento CHAR(10) NOT NULL,
  Nombre Cobertura CHAR(10) NOT NULL,
  Exención CHAR(10),
- Valor copago CHAR(10),
- Documentación CHAR(10)
+ Valor copago CHAR(10) NOT NULL,
+ Documentación CHAR(10) NOT NULL
 );
 
 ALTER TABLE Cubre ADD CONSTRAINT PK_Cubre PRIMARY KEY (Codigo Procedimiento,Nombre Cobertura);
