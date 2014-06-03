@@ -138,12 +138,6 @@ CREATE TABLE Turno (
  Tipo Turno CHAR(10) NOT NULL,
  Monto a abonar FLOAT(10) NOT NULL,
  Nro Paciente INT NOT NULL,
- Provincia CHAR(20) NOT NULL,
- Localidad CHAR(20) NOT NULL,
- Calle CHAR(20) NOT NULL,
- Numero INT NOT NULL,
- Piso INT NOT NULL,
- Departamento CHAR(1) NOT NULL,
  Fecha DATE NOT NULL,
  Hora TIME(10) NOT NULL,
  Duración INT NOT NULL
@@ -157,8 +151,9 @@ CREATE TABLE Turno de Diagnóstico (
  Tipo Turno CHAR(10) NOT NULL,
  Nro Matricula INT NOT NULL,
  Fecha DATE NOT NULL,
- Hora Inicio TIME(10) NOT NULL,
- Hora Fin CHAR(10) NOT NULL
+ Hora TIME(10) NOT NULL,
+ Duración CHAR(10) NOT NULL,
+ N° consultorio INT
 );
 
 ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT PK_Turno de Diagnóstico PRIMARY KEY (Nro Turno);
@@ -166,18 +161,20 @@ ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT PK_Turno de Diagnóstico PRIMARY 
 
 CREATE TABLE Turno de Quirófano y Cama (
  Nro Turno CHAR(10) NOT NULL,
- Nro Matricula INT NOT NULL
+ Nro Matricula INT NOT NULL,
+ N° quirofano INT,
+ N° cama INT
 );
 
 ALTER TABLE Turno de Quirófano y Cama ADD CONSTRAINT PK_Turno de Quirófano y Cama PRIMARY KEY (Nro Turno);
 
 
 CREATE TABLE Tiene Procedimiento (
- Nro Turno INT NOT NULL,
- Codigo Procedimiento CHAR(10) NOT NULL
+ Codigo Procedimiento CHAR(10) NOT NULL,
+ Nro Turno CHAR(10) NOT NULL
 );
 
-ALTER TABLE Tiene Procedimiento ADD CONSTRAINT PK_Tiene Procedimiento PRIMARY KEY (Nro Turno,Codigo Procedimiento);
+ALTER TABLE Tiene Procedimiento ADD CONSTRAINT PK_Tiene Procedimiento PRIMARY KEY (Codigo Procedimiento,Nro Turno);
 
 
 ALTER TABLE Persona ADD CONSTRAINT FK_Persona_0 FOREIGN KEY (Provincia,Localidad,Calle,Numero,Piso,Departamento) REFERENCES Dirección (Provincia,Localidad,Calle,Numero,Piso,Departamento);
@@ -213,19 +210,18 @@ ALTER TABLE Paciente ADD CONSTRAINT FK_Paciente_1 FOREIGN KEY (Nombre Cobertura)
 
 
 ALTER TABLE Turno ADD CONSTRAINT FK_Turno_0 FOREIGN KEY (Nro Paciente) REFERENCES Paciente (Nro Paciente);
-ALTER TABLE Turno ADD CONSTRAINT FK_Turno_1 FOREIGN KEY (Provincia,Localidad,Calle,Numero,Piso,Departamento) REFERENCES Dirección (Provincia,Localidad,Calle,Numero,Piso,Departamento);
 
 
 ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT FK_Turno de Diagnóstico_0 FOREIGN KEY (Nro Turno) REFERENCES Turno (Nro Turno);
 ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT FK_Turno de Diagnóstico_1 FOREIGN KEY (Nro Matricula) REFERENCES Profesional (Nro Matricula);
-ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT FK_Turno de Diagnóstico_2 FOREIGN KEY (Nro Matricula,Fecha,Hora Inicio) REFERENCES Block de Turnos (Nro Matricula,Fecha,Hora Inicio);
+ALTER TABLE Turno de Diagnóstico ADD CONSTRAINT FK_Turno de Diagnóstico_2 FOREIGN KEY (Nro Matricula,Fecha,Hora) REFERENCES Block de Turnos (Nro Matricula,Fecha,Hora Inicio);
 
 
 ALTER TABLE Turno de Quirófano y Cama ADD CONSTRAINT FK_Turno de Quirófano y Cama_0 FOREIGN KEY (Nro Turno) REFERENCES Turno (Nro Turno);
 ALTER TABLE Turno de Quirófano y Cama ADD CONSTRAINT FK_Turno de Quirófano y Cama_1 FOREIGN KEY (Nro Matricula) REFERENCES Profesional (Nro Matricula);
 
 
-ALTER TABLE Tiene Procedimiento ADD CONSTRAINT FK_Tiene Procedimiento_0 FOREIGN KEY (Nro Turno) REFERENCES Turno de Diagnóstico (Nro Turno);
-ALTER TABLE Tiene Procedimiento ADD CONSTRAINT FK_Tiene Procedimiento_1 FOREIGN KEY (Codigo Procedimiento) REFERENCES Procedimiento Médico (Codigo Procedimiento);
+ALTER TABLE Tiene Procedimiento ADD CONSTRAINT FK_Tiene Procedimiento_0 FOREIGN KEY (Codigo Procedimiento) REFERENCES Procedimiento Médico (Codigo Procedimiento);
+ALTER TABLE Tiene Procedimiento ADD CONSTRAINT FK_Tiene Procedimiento_1 FOREIGN KEY (Nro Turno) REFERENCES Turno de Diagnóstico (Nro Turno);
 
 
